@@ -308,8 +308,6 @@ console.log(lemon.message());
 
 */
 
-/*
-
 // ### Arrayer med objekt ###
 
 let user = [
@@ -352,5 +350,3 @@ human.showHobbies();
 for (let i = 0; i < human.hobbies.length; i++) {
   console.log(`${human.firstName} gillar ${human.hobbies[i]}`);
 }
-
-*/
