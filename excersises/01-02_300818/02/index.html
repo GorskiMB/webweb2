@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <title>300618_02</title>
+
+  </head>
+  <body>
+
+    <button onclick="clickMe()">Tryck på mig</button>
+    <button onclick="separeradAlmost(this)">Denna ska ändras</button>
+    <button onclick="showDate(this)">Denna ska ändras</button>
+    <button id="btn">Knapp med id</button>
+
+    <section>
+      <form action="skickaHit.php" method="post" onsubmit="return validateForm()"><!--"return" för att kunna returna "false" och undvika undvika submit-->
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName">
+        <br>
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName">
+        <br>
+        <label for="background">Background</label>
+        <select name="background" id="background" onchange="changeBackground(this)">
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+      </form>
+    </section>
+
+    <script src="js/script.js"></script>
+
+  </body>
+</html>
