@@ -1,6 +1,17 @@
 // Våra variabler
 let form      = document.querySelector('#addForm');
 let itemList  = document.querySelector('#items');
+let filter     = document.querySelector('#filter');
+
+const queryParent = (e, query) => {
+  let elem = e.target;
+  while (!elem.parentElement.querySelector(query)) {
+    console.log('HEJ');
+    elem = elem.parentElement;
+  }
+  console.log(elem);
+  return elem;
+};
 
 // Add items
 const addItem = e => {
@@ -58,7 +69,9 @@ const removeItem = e => {
       // itemList.removeChild(e.target.parentElement);
 
       // Ta bort sätt 2:
-      e.target.parentElement.remove(); // Fungerar likadant
+      // e.target.parentElement.remove(); // Fungerar likadant
+      // e.target.parentElement.remove(); // Fungerar likadant
+      queryParent(e, '#addForm').remove(); // Fungerar likadant
     }
   }
 
@@ -67,7 +80,34 @@ const removeItem = e => {
   }
 };
 
+// Filtreringsfunktion (lite avancerat men wtf...)
+const filterItems = e => {
+  console.log('Filter körs igång');
+  // 1. Gör om texten till liten text
+  let text = e.target.value.toLowerCase();
+
+  // 2. Hämta alla li's i listan (Ger oss en sk HTML-collection, INTE en array)
+  let items = itemList.getElementsByTagName('li');
+
+  // 3. Gå igenom varje item i items. ForEach bara med arrays
+  Array.from(items).forEach(item => {
+    // Få ut text ur li (textnod är FÖRSTA barnet)
+    let itemName = item.firstChild.textContent;
+    // Matchar värderna? -1 ges om de INTE matchar
+    if (itemName.toLowerCase().indexOf(text) != -1) {
+      console.log(itemName.toLowerCase().indexOf(text));
+      // Om de matchar
+      item.style.display = 'block'; // Visa elementet
+    }
+
+    else {
+      item.style.display = 'none'; // Dölj listordet som ej matchar
+    }
+  });
+
+};
+
 // Lägg till event-listeners
 form.addEventListener('submit', addItem);
-
 itemList.addEventListener('click', removeItem);
+filter.addEventListener('input', filterItems); // Eller keyup
