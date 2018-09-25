@@ -143,26 +143,34 @@ ttt.xyToArrayIndex = (x, y, columns) => {
 ttt.checkWinCondition = (players, board, columns, rows) => {
   let x = 0,
       y = 0,
-      win = 0;
+      win = 0,
+      winBoxes = [];
 
   // Check horizontal (win: 1)
   console.log('Horizontal...');
   for (y = 0; y < rows; y++) {
     x = 0;
-    let gamePiece = board[ttt.xyToArrayIndex(x, y, columns)];
-    console.log('Game Piece:', gamePiece);
+    let boxIndex = ttt.xyToArrayIndex(x, y, columns);
+    let gamePiece = board[boxIndex];
+    // console.log('Game Piece:', gamePiece);
 
     if (gamePiece) {
+      winBoxes.push(boxIndex);
 
       for (x++; x < columns; x++) {
-        if (board[ttt.xyToArrayIndex(x, y, columns)] != gamePiece) {
-          console.log('No dice', x, y);
+        boxIndex = ttt.xyToArrayIndex(x, y, columns);
+        winBoxes.push(boxIndex);
+
+        if (board[boxIndex] != gamePiece) {
+          winBoxes = [];
+          // console.log('No dice', x, y);
           break;
         }
 
         else if (x == columns - 1 && board[ttt.xyToArrayIndex(x, y, columns)] == gamePiece) {
-          console.log('Win on row', y);
-          return true;
+          console.log('Player', ttt.game.playerTurn,'win on row:', y, winBoxes);
+          win = 1;
+          return win;
         }
       }
 
@@ -173,20 +181,27 @@ ttt.checkWinCondition = (players, board, columns, rows) => {
   console.log('Vertical...');
   for (x = 0; x < columns; x++) {
     y = 0;
-    let gamePiece = board[ttt.xyToArrayIndex(x, y, columns)];
-    console.log('Game Piece:', gamePiece);
+    let boxIndex = ttt.xyToArrayIndex(x, y, columns);
+    let gamePiece = board[boxIndex];
+    // console.log('Game Piece:', gamePiece);
 
     if (gamePiece) {
+      winBoxes.push(boxIndex);
 
       for (y++; y < rows; y++) {
-        if (board[ttt.xyToArrayIndex(x, y, columns)] != gamePiece) {
-          console.log('No dice', x, y);
+        boxIndex = ttt.xyToArrayIndex(x, y, columns);
+        winBoxes.push(boxIndex);
+
+        if (board[boxIndex] != gamePiece) {
+          winBoxes = [];
+          // console.log('No dice', x, y);
           break;
         }
 
         else if (y == rows - 1 && board[ttt.xyToArrayIndex(x, y, columns)] == gamePiece) {
-          console.log('Win on column', x);
-          return true;
+          console.log('Player', ttt.game.playerTurn,'win on column:', x, winBoxes);
+          win = 2;
+          return win;
         }
       }
 
