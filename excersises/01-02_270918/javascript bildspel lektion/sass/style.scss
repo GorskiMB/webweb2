@@ -1,0 +1,55 @@
+$border: 3px solid #fff;
+$max-width: 760px;
+
+body {
+  background: #333;
+  margin: 20px;
+  padding: 0;
+
+  .container {
+    background: #fff;
+    border: $border;
+    margin: auto;
+    max-width: $max-width;
+
+    .main-img {
+      img {
+        width: 100%;
+      }
+    }
+
+    .imgs {
+      background: #fff;
+      border: $border;
+      display: grid;
+      grid-gap: 6px;
+      grid-template-columns: repeat(4, 1fr);
+      margin: auto;
+      max-width: $max-width;
+
+      img {
+        filter: brightness(80%);
+        transition: transform 0.35s, filter 0.35s;
+        width: 100%;
+
+        &:hover {
+          filter: brightness(100%);
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
+
+// Fade-in animation
+@keyframes fadein {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  // Namn på anim, tid, typ, antal ggr
+  animation: fadein 0.5s ease-in 1;
+  opacity: 0;
+}

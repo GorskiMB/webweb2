@@ -1,0 +1,219 @@
+// Fonts
+$font-family:     'lato', sans-serif;
+$font-color:      #333;
+$font-size:       12px;
+$font-icon:       'FontAwesome';
+
+// Color
+$primary-color:   #05f;
+$secondary-color: #04a;
+$border-color:    #eee;
+$white:           #fff;
+$pink:            #fcd;
+$gray:            #aaa;
+
+// top-bar
+$top-bar-bgcolor: $secondary-color;
+$top-bar-height:  40px;
+
+// Header
+$header-height:   100px;
+$header-bgcolor:  $primary-color;
+
+// Width
+$page-width:      700px;
+$page-padding:    40px;
+
+$border:          1px solid $border-color;
+
+// General
+html {
+  font-family: $font-family;
+
+  body {
+    background: $white;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: $font-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+// General END
+
+// #top-bar
+#top-bar {
+  background: $top-bar-bgcolor;
+  display: inline-block;
+  width: 100%;
+
+  ul {
+    margin: 0 auto;
+    max-width: $page-width;
+    padding: 0 $page-padding;
+
+    li {
+      display: inline-block;
+      font-size: $font-size;
+      height: $top-bar-height;
+      line-height: $top-bar-height;
+      margin-right: 10px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &::before {
+        content: '\f00c';
+        font-family: $font-icon;
+        font-size: $font-size;
+        margin-right: 8px;
+      }
+    }
+  }
+}
+// #top-bar END
+
+// Header
+header {
+  background: $header-bgcolor;
+  display: inline-block;
+  height: $header-height;
+  line-height: $header-height;
+  width: 100%;
+
+  h1 {
+    margin: 0;
+    text-align: center;
+  }
+}
+// Header END
+
+// #MAIN-AREA
+section {
+  background: $secondary-color;
+  border-left: $border;
+  border-right: 1px solid $border;
+  display: block;
+  margin: 0 auto;
+  max-width: $page-width;
+  padding: 0 $page-padding;
+}
+
+article {
+  border-bottom: $border;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.art1 {
+  ul {
+    li {
+      background: $pink;
+      border: $border;
+      font-size: $font-size;
+      padding: 10px 20px;
+
+      &:hover {
+        background: darken($pink, 10%);
+      }
+
+      &:nth-child(even) {
+        background: $gray;
+
+        &:hover {
+          background: darken($gray, 5%);
+        }
+      }
+
+      &:last-child {
+        a {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+@mixin center-box($translate, $position) {
+  -webkit-transform:  $translate;
+  -ms-transform:      $translate;
+  transform:          $translate;
+  left:               $position;
+  right:              $position;
+}
+
+.art2 {
+  .img-wrapper {
+    max-height: 800px;
+    position: relative;
+
+    .text-box {
+      background-color: rgba(231, 231, 231, 0.85);
+      left: 50%;
+      padding: 20px;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+
+      @include center-box(translate(-50%, -50%), 50%);
+
+      p {
+        font-size: $font-size;
+        color: $font-color;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+  }
+}
+
+// BARA EN TEMORÄR KLASS FÖR ATT ANVÄNDA EN @EXTEND
+
+.meal-box {
+  display: inline-block;
+  color: red;
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.breakfast {
+  @extend .meal-box;
+  background-color: yellow;
+}
+
+.lunch {
+  @extend .meal-box;
+  background-color: blue;
+}
+
+.snacks {
+  @extend .meal-box;
+  background-color: pink;
+}
+
+.dinner {
+  @extend .meal-box;
+  background-color: white;
+}
+
+// #MAIN-AREA END

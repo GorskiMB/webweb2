@@ -1,0 +1,121 @@
+html {
+  font-family: "lato", sans-serif; }
+  html body {
+    background: #fff; }
+  html img {
+    width: 100%; }
+  html ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  html a {
+    color: #333;
+    text-decoration: none; }
+    html a:hover {
+      text-decoration: underline; }
+
+#top-bar {
+  background: #04a;
+  display: inline-block;
+  width: 100%; }
+  #top-bar ul {
+    margin: 0 auto;
+    max-width: 700px;
+    padding: 0 40px; }
+    #top-bar ul li {
+      display: inline-block;
+      font-size: 12px;
+      height: 40px;
+      line-height: 40px;
+      margin-right: 10px; }
+      #top-bar ul li:first-child {
+        margin-left: 0; }
+      #top-bar ul li::before {
+        content: '\f00c';
+        font-family: "FontAwesome";
+        font-size: 12px;
+        margin-right: 8px; }
+
+header {
+  background: #05f;
+  display: inline-block;
+  height: 100px;
+  line-height: 100px;
+  width: 100%; }
+  header h1 {
+    margin: 0;
+    text-align: center; }
+
+section {
+  background: #04a;
+  border-left: 1px solid #eee;
+  border-right: 1px solid 1px solid #eee;
+  display: block;
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 0 40px; }
+
+article {
+  border-bottom: 1px solid #eee;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  width: 100%; }
+
+.art1 ul li {
+  background: #fcd;
+  border: 1px solid #eee;
+  font-size: 12px;
+  padding: 10px 20px; }
+  .art1 ul li:hover {
+    background: #ff99bb; }
+  .art1 ul li:nth-child(even) {
+    background: #aaa; }
+    .art1 ul li:nth-child(even):hover {
+      background: #9d9d9d; }
+  .art1 ul li:last-child a {
+    font-weight: bold; }
+
+.art2 .img-wrapper {
+  max-height: 800px;
+  position: relative; }
+  .art2 .img-wrapper .text-box {
+    background-color: rgba(231, 231, 231, 0.85);
+    left: 50%;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    left: 50%;
+    right: 50%; }
+    .art2 .img-wrapper .text-box p {
+      font-size: 12px;
+      color: #333;
+      font-weight: bold;
+      text-align: center; }
+
+.meal-box, .breakfast, .lunch, .snacks, .dinner {
+  display: inline-block;
+  color: red;
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  padding: 10px; }
+
+.breakfast {
+  background-color: yellow; }
+
+.lunch {
+  background-color: blue; }
+
+.snacks {
+  background-color: pink; }
+
+.dinner {
+  background-color: white; }
+
+/*# sourceMappingURL=input.css.map */
