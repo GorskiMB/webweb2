@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Viktkonverterare (events, funktioner, Bootstrap 4)</title>
+</head>
+<body class="bg-dark">
+    <div class="container pt-5"><!--bs:  Lägger allt i mitten-->
+        <div class="row">
+            <div class="col-md-6 offset-3"><!-- 6/12 kolumner bred, 3 kolumner åt höger (hamnar i mitten-->
+                <h1 class="display-4 text-center text-white"><!-- storlek, centerar, färg-->
+                    Konvertera Ninjavikt
+                </h1>
+                <div class="form-group"><!--Styla formuläret (avstånd mellan inputs)-->
+                    <label class="text-white" for="lbsInput">Ange pounds (lbs)</label>
+                    <input 
+                    id="lbsInput"
+                    type="number" 
+                    class="form-control form-control-lg" 
+                    placeholder="Ange pounds...">
+                </div>
+                <div id="output">
+                    <div class="card bg-primary text-white mb-2">
+                        <div class="card-block p-3">
+                            <h4>Gram:</h4>
+                            <div id="gramsOutput"> </div>
+                        </div>
+                    </div>
+                
+
+                
+                    <div class="card bg-success text-white mb-2">
+                        <div class="card-block p-3">
+                            <h4>Kilogram:</h4>
+                            <div id="kgOutput"> </div>
+                        </div>
+                    </div>
+                
+
+                
+                    <div class="card bg-danger text-white mb-2">
+                        <div class="card-block p-3">
+                            <h4>Ounces:</h4>
+                            <div id="ozOutput"> </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="js/convert.js"></script>
+</body>
+</html>
