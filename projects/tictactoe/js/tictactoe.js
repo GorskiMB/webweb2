@@ -371,6 +371,7 @@ ttt.newGame = () => {
   ttt.game.playerTurn = ttt.players[0];
   ttt.newBoard();
   ttt.DOM.clearBoard();
+  ttt.DOM.update();
 };
 
 ttt.init();
