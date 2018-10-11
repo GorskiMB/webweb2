@@ -36,9 +36,13 @@ body {
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-gap: 4px;
+  list-style: none;
 }
 
-.ttt button {
+.ttt li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #fff5;
   color: #fff;
   font-size: 400%;
@@ -46,10 +50,30 @@ body {
   width: 80px;
 }
 
-.ttt.gameview.win button.win {
+.ttt.gameview.win li.win {
   background-color: #fff8;
 }
 
-.ttt.gameview.win button {
+.ttt.gameview.win li {
   background-color: #0005;
+}
+
+input {
+  background-color: transparent;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.players i {
+  transition: font-size 1s;
+}
+
+.highlight {
+  color: white;
+}
+
+.highlight.win {
+  font-size: 200%;
 }
